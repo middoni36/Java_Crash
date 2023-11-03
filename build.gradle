@@ -1,0 +1,32 @@
+import java.text.SimpleDateFormat
+
+buildscript {
+    ext{
+        sonarqubeVersion="3.3"
+        scanDate=new SimpleDateFormat("yyyy/MM/dd").format(new Date())
+    }
+}
+
+
+plugins {
+    id 'java'
+    id 'org.sonarqube' version "${sonarqubeVersion}"
+}
+
+group 'org.learn'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+}
+
+test {
+    useJUnitPlatform()
+
+}
+
