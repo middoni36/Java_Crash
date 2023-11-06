@@ -1,16 +1,22 @@
 package org.learn;
 
-import java.util.ArrayList;
-import java.util.List;
+import org.test.Myiterator;
 
-public class Guitar_Repo {
+import java.util.*;
 
-    List<Guitar> guitar_list;
-    String id;
-    public Guitar_Repo(String id){
+public class Guitar_Repo extends Myiterator<Guitar> {
+
+    private List<Guitar> guitar_list;
+    private String id;
+
+
+
+
+    public Guitar_Repo(String id, List<Guitar> repo_collec){
+        super(repo_collec);
 
         this.id=id;
-        this.guitar_list=new ArrayList<>();
+        this.guitar_list=repo_collec;
 
     }
 
@@ -18,5 +24,11 @@ public class Guitar_Repo {
 
         this.guitar_list.add(guitar_inst);
     }
+
+
+    public List<Guitar> getGuitar_list() {
+        return this.guitar_list;
+    }
+
 
 }

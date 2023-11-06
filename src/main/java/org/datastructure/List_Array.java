@@ -117,11 +117,11 @@ public class List_Array implements Collection<String> {
 
                 is_equal= ((List_Array) o).contains(elm) ? true : false ;
                 if ( !is_equal ){
-                    break;
+                    break ;
                                }          }
             }
 
-        is_equal=true;
+
 
         return is_equal;
 
