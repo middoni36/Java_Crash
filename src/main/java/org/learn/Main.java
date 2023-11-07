@@ -1,6 +1,7 @@
 package org.learn;
 import org.datastructure.List_Array;
 import org.g_enums.TopWood;
+import org.test.Custom_Iter;
 import org.test.RandomGen;
 
 import java.awt.image.AreaAveragingScaleFilter;
@@ -28,29 +29,22 @@ public class Main {
         repo_guitar.add_guitar(guit_i);
 
 
-        ListIterator<Guitar> grepo_iterator= ((ArrayList<Guitar>)repo_guitar.getGuitar_list()).listIterator();
-
-        /*
-        for (ListIterator<Guitar> iter=grepo_iterator; iter.hasNext();){
+        Custom_Iter<Guitar> gui_repo_iter = repo_guitar.getCust_iter(); // get guitar repo iterator
 
 
-            System.out.println("***********************************************");
+        System.out.println(gui_repo_iter.next().toString());
 
-            System.out.println(iter.next().toString());
+        System.out.println("*********************************************************");
 
+
+        repo_guitar.add_guitar(new Guitar("thats ahmed guitar",TopWood.Normal));
+
+
+        while(gui_repo_iter.hasNext()){
+
+            System.out.println(gui_repo_iter.next().toString());
         }
 
-        while(grepo_iterator.hasPrevious()){
-            System.out.println("++++++++++++++++++++++++++++++++++++++");
-            System.out.println(grepo_iterator.previous().toString());
-        }
-
-
-        */
-
-            System.out.println(repo_guitar.next().toString());
-
-            System.out.println(repo_guitar.next().toString());
 
 
 
@@ -60,10 +54,10 @@ public class Main {
 
 
 
-        List_Array inst_la= new List_Array();
-        List_Array sec_la=new List_Array();
-        inst_la.add("hello");
-        sec_la.add("hello");
+
+
+
+
 
 
 

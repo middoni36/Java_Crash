@@ -27,7 +27,7 @@ public class Guitar {
 
     @Override
     public String toString() {
-        return "Guitar id = "+this.id+"\n"+ "Price = "+ this.price +"\nNotice = "+this.note+"\n"+"Top Wood ="+this.getG_topwood();
+        return "Guitar id = "+this.id+"\n"+ "Price = "+ this.price +" Euro \nNotice = "+this.note+"\n"+"Top Wood ="+this.getG_topwood();
     }
 
     public String getNote() {

@@ -1,22 +1,26 @@
 package org.learn;
 
-import org.test.Myiterator;
+import org.test.Custom_Iter;
 
 import java.util.*;
 
-public class Guitar_Repo extends Myiterator<Guitar> {
+public class Guitar_Repo  {
 
     private List<Guitar> guitar_list;
     private String id;
+
+    private Custom_Iter<Guitar> cust_iter;
+
 
 
 
 
     public Guitar_Repo(String id, List<Guitar> repo_collec){
-        super(repo_collec);
+
 
         this.id=id;
         this.guitar_list=repo_collec;
+        this.cust_iter = new Custom_Iter<>(repo_collec);
 
     }
 
@@ -31,4 +35,7 @@ public class Guitar_Repo extends Myiterator<Guitar> {
     }
 
 
+    public Custom_Iter<Guitar> getCust_iter() {
+        return cust_iter;
+    }
 }
