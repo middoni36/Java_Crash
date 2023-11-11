@@ -19,7 +19,10 @@ public class Main {
 
 
 
-        Guitar_Repo repo_guitar = new Guitar_Repo(RandomGen.get_rand_str(),new ArrayList<Guitar>());
+        guitarStarter();
+
+
+
 
 
         LinkedList<Integer> my_queue=new LinkedList<>();
@@ -40,9 +43,58 @@ public class Main {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    }
+
+
+
+    public static void guitarStarter(){
+
+
+
+        Guitar_Repo repo_guitar = new Guitar_Repo(RandomGen.get_rand_str(),new ArrayList<Guitar>());
+
+
         Guitar guit_m= new Guitar("That's Mehdi Guitar", TopWood.Weak);
         Guitar guit_y=new Guitar("Thats yassine guitar",TopWood.Hard);
         Guitar guit_i=new Guitar("Thats  mimo guitar",TopWood.Normal);
+
+
+
+
 
 
 
@@ -51,47 +103,26 @@ public class Main {
         repo_guitar.add_guitar(guit_i);
 
 
+
+
+
+
+
+
+
+
+
         Custom_Iter<Guitar> gui_repo_iter = repo_guitar.getCust_iter(); // get guitar repo iterator
 
 
-        System.out.println(gui_repo_iter.next().toString());
-
-        System.out.println("*********************************************************");
 
 
-        repo_guitar.add_guitar(new Guitar("thats ahmed guitar",TopWood.Normal));
 
 
         while(gui_repo_iter.hasNext()){
 
             System.out.println(gui_repo_iter.next().toString());
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
