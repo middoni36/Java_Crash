@@ -57,4 +57,15 @@ public class Guitar {
     public String getG_topwood() {
         return g_topwood.toString();
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if(obj.getClass()!= getClass() || obj==null ) {return false;}
+        else {
+            Guitar other_gui=(Guitar)obj;
+
+            return (other_gui.getG_topwood() == this.getG_topwood() && other_gui.note.equals(this.note));
+
+        }
+    }
 }

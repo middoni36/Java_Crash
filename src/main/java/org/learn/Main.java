@@ -6,10 +6,7 @@ import org.test.Custom_Iter;
 import org.test.RandomGen;
 
 import java.awt.image.AreaAveragingScaleFilter;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.ListIterator;
+import java.util.*;
 import java.util.concurrent.ExecutorService;
 
 public class Main {
@@ -22,6 +19,9 @@ public class Main {
         guitarStarter();
 
 
+        //testMapps();
+
+
 
 
 
@@ -29,10 +29,13 @@ public class Main {
 
 
 
-
+        /*
 
         CustomThreads.FillThread fillThread_inst = new CustomThreads.FillThread(my_queue);
         CustomThreads.SumThread sumThread_inst = new CustomThreads.SumThread(my_queue);
+
+
+         */
 
 
 
@@ -88,9 +91,12 @@ public class Main {
         Guitar_Repo repo_guitar = new Guitar_Repo(RandomGen.get_rand_str(),new ArrayList<Guitar>());
 
 
-        Guitar guit_m= new Guitar("That's Mehdi Guitar", TopWood.Weak);
-        Guitar guit_y=new Guitar("Thats yassine guitar",TopWood.Hard);
+        Guitar guit_m= new Guitar("test", TopWood.Weak);
+        Guitar guit_y=new Guitar(new String("test"),TopWood.Weak);
         Guitar guit_i=new Guitar("Thats  mimo guitar",TopWood.Normal);
+
+
+        System.out.println("Comparison is = " + (guit_m.equals(guit_y)));
 
 
 
@@ -101,11 +107,6 @@ public class Main {
         repo_guitar.add_guitar((guit_m));
         repo_guitar.add_guitar(guit_y);
         repo_guitar.add_guitar(guit_i);
-
-
-
-
-
 
 
 
@@ -125,6 +126,25 @@ public class Main {
         }
 
 
+
+
+
+    }
+
+    public static void testMapps() {
+
+
+        Map<String,List> my_map = new HashMap<>();
+
+
+        my_map.put("test",new ArrayList<String>());
+
+
+        for (String key:my_map.keySet()) {
+
+            System.out.println(my_map.get(key));
+
+        }
 
 
 
