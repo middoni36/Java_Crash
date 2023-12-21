@@ -2,6 +2,7 @@ package org.learn;
 import org.custThreads.CustomThreads;
 import org.datastructure.List_Array;
 import org.g_enums.TopWood;
+import org.g_enums.Size;
 import org.test.Custom_Iter;
 import org.test.RandomGen;
 
@@ -25,17 +26,9 @@ public class Main {
 
 
 
-        LinkedList<Integer> my_queue=new LinkedList<>();
 
 
 
-        /*
-
-        CustomThreads.FillThread fillThread_inst = new CustomThreads.FillThread(my_queue);
-        CustomThreads.SumThread sumThread_inst = new CustomThreads.SumThread(my_queue);
-
-
-         */
 
 
 
@@ -91,12 +84,15 @@ public class Main {
         Guitar_Repo repo_guitar = new Guitar_Repo(RandomGen.get_rand_str(),new ArrayList<Guitar>());
 
 
-        Guitar guit_m= new Guitar("test", TopWood.Weak);
-        Guitar guit_y=new Guitar(new String("test"),TopWood.Weak);
-        Guitar guit_i=new Guitar("Thats  mimo guitar",TopWood.Normal);
+        Guitar guit_m= new Guitar("test", TopWood.Weak,Size.S);
+        Guitar guit_y=new Guitar("test",TopWood.Weak,Size.L);
+        Guitar guit_i=new Guitar("Thats  mimo guitar",TopWood.Normal,Size.M);
 
 
-        System.out.println("Comparison is = " + (guit_m.equals(guit_y)));
+        System.out.println("testing Guitar");
+
+
+        System.out.println("Same References are  = "+ (guit_m.getNote() == guit_y.getNote()));
 
 
 
@@ -110,20 +106,31 @@ public class Main {
 
 
 
+        Iterator<Guitar> iter_inst = repo_guitar.iterator();
+
+        Iterator<Guitar> iter_inst_2 = repo_guitar.iterator();
 
 
 
-        Custom_Iter<Guitar> gui_repo_iter = repo_guitar.getCust_iter(); // get guitar repo iterator
 
 
 
 
 
 
-        while(gui_repo_iter.hasNext()){
 
-            System.out.println(gui_repo_iter.next().toString());
+
+
+
+
+
+        while(iter_inst.hasNext()){
+
+            System.out.println(iter_inst.next().toString());
         }
+
+
+        System.out.println(iter_inst_2.hasNext());
 
 
 
@@ -131,7 +138,7 @@ public class Main {
 
     }
 
-    public static void testMapps() {
+    public static void testMaps() {
 
 
         Map<String,List> my_map = new HashMap<>();
@@ -148,5 +155,14 @@ public class Main {
 
 
 
+    }
+
+
+    public static void threads_test(){
+
+        LinkedList<Integer> my_queue=new LinkedList<>();
+
+        CustomThreads.FillThread fillThread_inst = new CustomThreads.FillThread(my_queue);
+        CustomThreads.SumThread sumThread_inst = new CustomThreads.SumThread(my_queue);
     }
 }

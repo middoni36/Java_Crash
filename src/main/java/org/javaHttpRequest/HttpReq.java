@@ -12,9 +12,26 @@ public class HttpReq {
     private HashMap<String,String> header_params;
 
 
-   public HttpReq(String url){
 
-       this.url=url;
+    private static HttpReq req_singelton;
+
+
+
+    private HttpReq(String url){
+
+        this.url=url;
+
+   }
+
+
+   public static HttpReq getReqInstance(String url){
+
+        if (req_singelton==null){
+
+            req_singelton=new HttpReq(url);
+        }
+
+        return req_singelton;
 
    }
 

@@ -22,4 +22,11 @@ public enum TopWood {
         }
 
     }
+
+    public double getHardness(){
+
+        return this.hardness;
+    }
+
+
 }

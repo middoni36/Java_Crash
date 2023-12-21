@@ -4,7 +4,7 @@ import org.g_enums.*;
 
 import java.util.Iterator;
 
-public class Guitar {
+public class Guitar implements Comparable<Guitar> {
 
 
     private String  note, id;
@@ -12,16 +12,19 @@ public class Guitar {
 
     private TopWood g_topwood;
 
+    private Size g_size;
 
 
 
 
-    public Guitar(String notice,TopWood gtopwood){
+
+    public Guitar(String notice,TopWood gtopwood,Size g_size ) {
 
         this.id=RandomGen.get_rand_str();
         this.price=RandomGen.get_rand_doub();
-        this.note=notice;
+        this.note=new String(notice);
         this.g_topwood=gtopwood;
+        this.g_size=g_size;
 
     }
 
@@ -31,11 +34,11 @@ public class Guitar {
     }
 
     public String getNote() {
-        return note;
+        return this.note;
     }
 
     public void setNote(String note) {
-        this.note = note;
+        this.note = note ;
     }
 
     public String getId() {
@@ -58,14 +61,22 @@ public class Guitar {
         return g_topwood.toString();
     }
 
+    public String getG_size(){return this.g_size.toString();}
+
     @Override
     public boolean equals(Object obj) {
-        if(obj.getClass()!= getClass() || obj==null ) {return false;}
-        else {
-            Guitar other_gui=(Guitar)obj;
+        if (obj == null || getClass() != obj.getClass()){
+            return false;
+        }else {
+            Guitar G_inst =(Guitar)obj;
 
-            return (other_gui.getG_topwood() == this.getG_topwood() && other_gui.note.equals(this.note));
+            return G_inst.getG_size().toString().equals(this.getG_size().toString()) && G_inst.g_topwood.toString().equals(this.g_topwood.toString()) && G_inst.price ==this.price;
 
         }
+    }
+
+    @Override
+    public int compareTo(Guitar o) {
+        return 0;
     }
 }
